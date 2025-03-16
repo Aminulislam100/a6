@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 06</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <header id="nav" class="relative hidden">
+        <nav class="fixed top-0 right-0 left-0">
+            <div class="flex px-10 bg-gray-100 border-b-1 border-gray-400 justify-between items-center mx-auto py-5 ">
+                <div class="flex items-center">
+            <h1 class="font-medium">English</h1>
+            <img class="w-8 mr-1" src="assets/logo.png" alt="">
+            <h1 class="font-medium">জানালা</h1>
+        </div>
+        <div>
+            <a href="#faq"><button class="btn border-blue-900 btn-sm text-blue-900 font-bold"><img src="assets/fa-circle-question.png" alt=""> FAQ</button></a>
+            <a href="#FAQ"><button class="btn border-blue-900 btn-sm text-blue-900 font-bold"><img src="assets/fa-book-open.png" alt=""> Learn</button></a>
+            <a href=""><button class="btn border-blue-900 btn-sm text-blue-900 font-bold"><img src="assets/fa-arrow-right-from-bracket.png" alt=""> Logout</button></a>
+
+        </div>
+        </div>
+        </nav>
+    </header>
+    <main class="mt-40">
+        <div class="flex w-11/12 ml-14 justify-between">
+            <div>
+                <h1 class="text-3xl font-bold"><span class="text-sky-400">English</span> is Easy!!</h1>
+                <p>আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা <br> আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে <br> যাবে অন্য একটি Level এ</p>
+                <div class="min-h-screen">
+                    <div class=" flex-col lg:flex-row-reverse">
+                      
+                      <div class="card bg-base-100 w-full max-w-sm shrink-0">
+                        <div class="card-body">
+                          <fieldset class="fieldset">
+
+                            <input type="email" class="input" placeholder="Enter Your Name" />
+
+                            <input type="password" id="pasword" class="input" placeholder="Password" />
+
+                            <input type="submit" id="submit" value="Get Started" class="btn btn-md w-30 btn-primary mt-4">
+                          </fieldset>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div>
+                <img class="w-150 -mt-36" src="assets/hero-student.png" alt="">
+            </div>
+        </div>
+
+
+        <section id="FAQ" class="hidden">
+
+            <div>
+                <div class="grid justify-center">
+                    <h1 class="text-3xl font-bold text-center mb-10"><span class="text-sky-400">Let's</span> Learn Vocabularies</h1>
+                    <div id="lesson-container" class="flex gap-3">
+                        
+                    </div>
+                </div>
+
+
+                    <div id="lesson-sellect" class="bg-base-200 p-10 mx-auto mt-4 w-10/12 rounded-lg">
+                        <div class="text-center">
+                          <div>
+                            <p class="py-6 text-gray-500">
+                                আপনি এখনো কোন Lesson Select করেন নি
+                            </p>
+                            <h1 class="text-3xl font-bold">একটি Lesson Select করুন।</h1>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div id="cards-container" class="bg-base-200 mt-10 w-300 mx-auto rounded-3xl hidden gap-7 p-7 grid grid-cols-3">
+                      </div>
+
+
+                      
+    
+
+
+            </div>
+        </section>
+        <section class="mt-50 hidden" id="faq">
+            <div class="gap-5 grid">
+                <div>
+                    <h1 class="mb-10 text-3xl font-bold text-center"><span class="text-sky-400">Frequently</span> Asked Questions</h1>
+                </div>
+                <div tabindex="0" class="collapse collapse-plus bg-base-100 border-base-300 border mx-auto  w-10/12">
+                    <div class="collapse-title font-semibold">1. How can I start learning English on this website?</div>
+                    <div class="collapse-content text-sm">
+                     You can start with vocabularies.
+                    </div>
+                  </div>
+
+                  
+                <div tabindex="0" class="collapse collapse-plus bg-base-100 border-base-300 border mx-auto  w-10/12">
+                    <div class="collapse-title font-semibold">2. Is this website free to use?</div>
+                    <div class="collapse-content text-sm">
+                     Yeeees.
+                    </div>
+                  </div>
+
+                <div tabindex="0" class="collapse collapse-plus bg-base-100 border-base-300 border mx-auto  w-10/12">
+                    <div class="collapse-title font-semibold">3.  Do I need to create an account?</div>
+                    <div class="collapse-content text-sm">
+                     Yes! Of course.
+                    </div>
+                  </div>
+
+                <div tabindex="0" class="collapse collapse-plus bg-base-100 border-base-300 border mx-auto  w-10/12">
+                    <div class="collapse-title font-semibold">4. How can I build my English vocabulary?</div>
+                    <div class="collapse-content text-sm">
+                     By practic everyday.
+                    </div>
+                  </div>
+
+                <div tabindex="0" class="collapse collapse-plus bg-base-100 border-base-300 border mx-auto  w-10/12">
+                    <div class="collapse-title font-semibold">5. Do you offer certificates for completed courses?</div>
+                    <div class="collapse-content text-sm">
+                     Yes.
+                    </div>
+                  </div>
+
+
+            </div>
+        </section>
+    </main>
+
+
+    <script src="script/index.js"></script>
+    <script src="script/input.js"></script>
+</body>
+</html>
