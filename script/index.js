@@ -22,37 +22,20 @@ function displayLessonName(lessonName, id, level) {
 
 }
 
-const loadLessonCards = (level) => {
+const loadLessonCards = (id) => {
     const cardsContainer = document.getElementById('cards-container');
     cardsContainer.innerHTML = '';
 
-    if (level === 4 || level === 7) {
-        const noLessonDiv = document.createElement('div');
-        noLessonDiv.innerHTML = `
-        <div class="w-full ml-100">
-            <img src="./assets/alert-error.png" class="mx-auto w-40" alt="No Lesson Available">
-            <p class="text-center text-xs text-gray-400 mt-3">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
-            <p class="text-center text-4xl font-bold mt-3">নেক্সট Lesson এ যান</p>
-            </div>
-        `;
-        cardsContainer.appendChild(noLessonDiv);
-        return;
-    }
-
-    const url = `https://openapi.programming-hero.com/api/level/${level}`;
-    console.log("Fetching:", url);
+    const url = `https://openapi.programming-hero.com/api/level/${id}`;
+    console.log(url);
 
     fetch(url)
         .then((res) => res.json())
         .then((data) => {
-
-
             if (Array.isArray(data.data) && data.data.length > 0) {
-                data.data.forEach(level => {
-                    displayCards(level.word, level.meaning, level.pronunciation, level.sentence);
+                data.data.forEach(word => {
+                    displayCards(word.word, word.meaning, word.pronunciation);
                 });
-            } else {
-                showNoLesson();
             }
         })
 };
@@ -65,7 +48,7 @@ const loadLessonCards = (level) => {
 
 function displayCards(word, meaning, pronunciation, sentence) {
     
-
+    
 
     const lessonContainer = document.getElementById('cards-container');
 
@@ -89,8 +72,11 @@ function displayCards(word, meaning, pronunciation, sentence) {
     lessonContainer.append(lessonNameDiv);
 }
 
-function openModal(word, meaning, pronunciation) {
+function openModal(word, meaning, pronunciation, sentence, id) {
     
+
+
+
 
 
     const modal = document.createElement('dialog');
@@ -103,9 +89,9 @@ function openModal(word, meaning, pronunciation) {
             <h3 class="text-lg font-semibold mb-2">Example</h3>
             <p id="sentence" class="mb-5">The kids were eager to open their gifts.</p>
             <h1 class="mb-2">সমার্থক শব্দ গুলো</h1>
-            <button class="btn bg-sky-100 mb-5">Sorry, I can't</button>
-            <button class="btn bg-sky-100 mb-5">Sorry, I can't</button>
-            <button class="btn bg-sky-100 mb-5">Sorry, I can't</button>
+            <button class="btn bg-sky-100 mb-5">enthusiastic</button>
+            <button class="btn bg-sky-100 mb-5">excited</button>
+            <button class="btn bg-sky-100 mb-5">keen</button>
             <form method="dialog">
                 <button class="btn btn-primary text-white">Complete learning</button>
             </form>
