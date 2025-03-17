@@ -9,6 +9,9 @@ function loadLessonName() {
 function displayLessonName(lessonName, id, level) {
     const lessonContainer = document.getElementById('lesson-container');
 
+
+    
+
     const lessonNameDiv = document.createElement('div');
     lessonNameDiv.innerHTML = `
         <button onclick="loadLessonCards(${level}), vanish()" class="btn btn-sm text-blue-900 border-blue-900 hover:border-white focus:border-white hover:text-white focus:text-white hover:bg-blue-900 focus:bg-blue-900">
@@ -29,12 +32,26 @@ const loadLessonCards = (id) => {
     const url = `https://openapi.programming-hero.com/api/level/${id}`;
     console.log(url);
 
+    if(url === (`https://openapi.programming-hero.com/api/level/4`) || url === (`https://openapi.programming-hero.com/api/level/7`)){
+        const lessonContainer = document.getElementById('cards-container');
+
+    const lessonNameDiv = document.createElement('div');
+    lessonNameDiv.innerHTML = `
+        <div class="w-270 text-center mx-auto">
+        <img class="w-50 mx-auto" src="./assets/alert-error.png">
+        <p class="text-xs text-gray-500">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
+        <p class="text-3xl font-bold">নেক্সট Lesson এ যান</p>
+        </div>
+    `;
+    lessonContainer.append(lessonNameDiv);
+    }
+
     fetch(url)
         .then((res) => res.json())
         .then((data) => {
             if (Array.isArray(data.data) && data.data.length > 0) {
                 data.data.forEach(word => {
-                    displayCards(word.word, word.meaning, word.pronunciation);
+                    displayCards(word.word, word.meaning, word.pronunciation, word.id);
                 });
             }
         })
@@ -46,8 +63,9 @@ const loadLessonCards = (id) => {
 
 
 
-function displayCards(word, meaning, pronunciation, sentence) {
+function displayCards(word, meaning, pronunciation, id, sentence) {
     
+
     
 
     const lessonContainer = document.getElementById('cards-container');
@@ -72,7 +90,7 @@ function displayCards(word, meaning, pronunciation, sentence) {
     lessonContainer.append(lessonNameDiv);
 }
 
-function openModal(word, meaning, pronunciation, sentence, id) {
+function openModal(word, meaning, pronunciation) {
     
 
 
